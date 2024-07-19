@@ -1,4 +1,4 @@
-source aws_credentials.sh
+# source aws_credentials.sh
 
 STACK_NAME=awsbootstrap
 REGION=us-east-1 
@@ -35,6 +35,7 @@ aws cloudformation deploy \
   --template-file main.yml \
   --no-fail-on-empty-changeset \
   --capabilities CAPABILITY_NAMED_IAM \
+  --disable-rollback \
   --parameter-overrides \
     EC2InstanceType=$EC2_INSTANCE_TYPE \
     GitHubOwner=$GH_OWNER \
